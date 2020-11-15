@@ -27,12 +27,24 @@ See the tests files for more usages.
 
 ```cpp
 using namespace YukiWorkshop;
+```
 
+```cpp
+// AMR NB 12.2k
 int16_t pcm_s16_native_8khz_20ms[160];
+
+SimpleAMRNB::Encoder enc;
+
+std::vector<uint8_t> encoded_data = enc.encode(SimpleAMRNB::Encoder::B12200, pcm_s16_native_8khz_20ms);
+```
+
+```cpp
+// AMR WB 23.85k
+int16_t pcm_s16_native_16khz_20ms[320];
 
 SimpleAMRWB::Encoder enc;
 
-std::vector<uint8_t> encoded_data = enc.encode(Encoder::B12200, pcm_s16_native_8khz_20ms);
+std::vector<uint8_t> encoded_data = enc.encode(SimpleAMRWB::Encoder::B23850, pcm_s16_native_16khz_20ms);
 ```
 
 ## License
